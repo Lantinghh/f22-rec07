@@ -33,9 +33,9 @@ public class App extends NanoHTTPD {
     public Response serve(IHTTPSession session) {
         String uri = session.getUri();
         Map<String, String> params = session.getParms();
-        if (uri.equals("/newgame")) {
+        if ("/newgame".equals(uri)) {
             this.game = new Game();
-        } else if (uri.equals("/play")) {
+        } else if ("/play".equals(uri)) {
             // e.g., /play?x=1&y=1
             this.game = this.game.play(Integer.parseInt(params.get("x")), Integer.parseInt(params.get("y")));
         }
